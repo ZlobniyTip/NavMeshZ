@@ -1,5 +1,4 @@
 using UnityEngine;
-using Zenject;
 
 [RequireComponent(typeof(Rigidbody))]
 public class AxisMovement : IMovable
@@ -14,8 +13,7 @@ public class AxisMovement : IMovable
 
     public float Speed => _rigidbody.velocity.magnitude;
 
-    [Inject]
-    private void Construct(PlayerComponents playerComponents)
+    public AxisMovement(PlayerComponents playerComponents)
     {
         _transform = playerComponents.Transform;
         _rigidbody = playerComponents.Rigidbody;

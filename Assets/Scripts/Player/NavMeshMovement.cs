@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Zenject;
 
 public class NavMeshMovement : IMovable
 {
@@ -11,8 +10,7 @@ public class NavMeshMovement : IMovable
 
     public float Speed => _navMeshAgent.speed;
 
-    [Inject]
-    private void Construct(PlayerComponents playerComponents)
+    public NavMeshMovement(PlayerComponents playerComponents)
     {
         _camera = Camera.main;
         _navMeshAgent = playerComponents.NavMeshAgent;
